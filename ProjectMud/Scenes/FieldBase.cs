@@ -24,6 +24,7 @@ namespace ProjectMud.Scenes
 
         public override void Render()
         {
+            Console.SetCursorPosition(0, 0);
             PrintMap();
 
             foreach (GameObj go in gameObjs)
@@ -33,6 +34,7 @@ namespace ProjectMud.Scenes
             Game.Player.PlayerPrint();
 
             Console.SetCursorPosition(0, map.GetLength(0));
+            Game.TextLine();
             Game.Player.Inventory.PrintAllItems();
         }
 

@@ -5,6 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectMud.Scenes;
 
+
+//  TODO : 매뉴를 따로 관리하고 싶어요.
+//  TODO : 저장기능도 만들고 싶어요.
+
 namespace ProjectMud
 {
     public static class Game
@@ -34,6 +38,7 @@ namespace ProjectMud
             sceneDic.Add("Field01", new Field01());
             sceneDic.Add("Town01", new Town01());
             sceneDic.Add("Normal01", new Normal01());
+            sceneDic.Add("TestField01", new TestField01());
 
             curScene = sceneDic["Title"];
 
@@ -70,6 +75,41 @@ namespace ProjectMud
             //  이동할게용
             curScene = sceneDic[sceneName];
             curScene.Enter();
+        }
+
+        public static void TextLine()
+        {
+            //아래쪽에다가 출력할래요
+            //  TODO : 플레이어 스텟을 구현한 뒤 셋 포지션 기능을 이용해 플레이어 정보 및 기본 메뉴를 띄우고 싶다.
+            for (int i = 0; i < 10; i++)
+            {
+                Console.SetCursorPosition(15, i);
+                Console.WriteLine("*");
+            }
+            AddInfo();
+        }
+
+        public static void AddInfo()
+        {
+            Console.SetCursorPosition(17,0);
+            Console.Write("- 맵 -");
+            Console.SetCursorPosition(17, 1);
+            Console.Write("{0}" , curScene.name);
+            Console.SetCursorPosition(17, 3);
+            Console.Write("Hp  / hp");
+            Console.SetCursorPosition(17, 4);
+            Console.ForegroundColor = ConsoleColor.DarkRed;
+            Console.Write("{0}", player.MaxHp);
+            Console.ResetColor();
+            Console.Write(" / ");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.Write("{0}", player.CurHp);
+            Console.ResetColor();
+            Console.SetCursorPosition(17, 6);
+            Console.Write("I : 가방 열기");
+            Console.SetCursorPosition(17, 7);
+
+
         }
 
     }

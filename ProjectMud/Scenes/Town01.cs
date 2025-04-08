@@ -22,7 +22,8 @@ namespace ProjectMud.Scenes
         {
             Console.WriteLine("마을01");
             Console.WriteLine("마을이다.");
-            Console.WriteLine("01 - 필드로");
+            Console.WriteLine("01 - 마을 밖 필드로"); 
+            Console.WriteLine("02 - 테스트 필드로");
         }
 
         public override void Result()
@@ -32,6 +33,10 @@ namespace ProjectMud.Scenes
                 case ConsoleKey.D1:
                     Util.PressKey("마을 밖으로");
                     Game.SceneChange("Field01");
+                    break;
+                case ConsoleKey.D2:
+                    Util.PressKey("테스트 필드로");
+                    Game.SceneChange("TestField01");
                     break;
                 default:
                     break;

@@ -33,7 +33,7 @@ namespace ProjectMud.Scenes
             }
             Game.Player.PlayerPrint();
 
-            Console.SetCursorPosition(0, map.GetLength(0) + 2);
+            Console.SetCursorPosition(0, map.GetLength(0));
         }
 
         public override void Result()

@@ -15,7 +15,6 @@ namespace ProjectMud.GameObject
         public Item(char symbol, Vectors pos) 
             : base(ConsoleColor.Yellow, symbol, pos, true)
         {
-            
         }
                  
                  

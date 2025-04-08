@@ -21,9 +21,10 @@ namespace ProjectMud
 
         public Player()
         {
+
+            inventory = new Inventory();
             this.maxHp = 100;
             this.curHp = maxHp;
-            this.inventory = inventory;
         }
 
         public void Heal(int quantity)

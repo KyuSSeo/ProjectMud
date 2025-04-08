@@ -25,7 +25,6 @@ namespace ProjectMud.Scenes
         public override void Render()
         {
             PrintMap();
-            Util.TextLine();
 
             foreach (GameObj go in gameObjs)
             {
@@ -34,6 +33,7 @@ namespace ProjectMud.Scenes
             Game.Player.PlayerPrint();
 
             Console.SetCursorPosition(0, map.GetLength(0));
+            Game.Player.Inventory.PrintAllItems();
         }
 
         public override void Result()
@@ -55,7 +55,7 @@ namespace ProjectMud.Scenes
 
         public override void Update()
         {
-            Game.Player.Move(input);
+            Game.Player.Action(input);
         }
         //  맵 그리기
         private void PrintMap()

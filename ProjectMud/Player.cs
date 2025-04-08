@@ -43,6 +43,25 @@ namespace ProjectMud
             Console.Write('P');
             Console.ResetColor();
         }
+
+        public void Action(ConsoleKey input)
+        {
+            switch (input)
+            {
+                case ConsoleKey.LeftArrow:
+                case ConsoleKey.UpArrow:
+                case ConsoleKey.RightArrow:
+                case ConsoleKey.DownArrow:
+                    Move(input);
+                    break;
+                case ConsoleKey.I:
+                    inventory.Open();
+                    break;
+                default:
+                    break;
+            }
+
+        }
         public void Move(ConsoleKey input)
         {
             Vectors targetPos = pos;

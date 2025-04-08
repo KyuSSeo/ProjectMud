@@ -16,5 +16,13 @@ namespace ProjectMud
             this.x = x;
             this.y = y;
         }
+        public static bool operator == (Vectors left, Vectors right)
+        {
+            return left.x == right.x && left.y == right.y;
+        }
+        public static bool operator !=(Vectors left, Vectors right)
+        {
+            return left.x != right.x && left.y != right.y;
+        }
     }
 }

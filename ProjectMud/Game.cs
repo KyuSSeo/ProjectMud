@@ -30,6 +30,7 @@ namespace ProjectMud
             sceneDic.Add("Test02", new Test02());
             sceneDic.Add("Test03", new Test03());
             sceneDic.Add("Field01", new Field01());
+            sceneDic.Add("Town01", new Town01());
 
             curScene = sceneDic["Title"];
 

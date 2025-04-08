@@ -8,6 +8,10 @@ namespace ProjectMud.Scenes
 {
     public class Title : Scene
     {
+        public Title()
+        {
+            name = "Title";
+        }
         public override void Input()
         {
             Util.PressKey("");
@@ -27,7 +31,7 @@ namespace ProjectMud.Scenes
 
         public override void Result()
         {
-            Game.SceneChange("Test01");
+            Game.SceneChange("Town01");
         }
 
         public override void Update()

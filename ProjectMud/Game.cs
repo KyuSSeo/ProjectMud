@@ -7,30 +7,33 @@ using ProjectMud.Scenes;
 
 namespace ProjectMud
 {
-    class Game
+    public static class Game
     {
         private static Dictionary<string, Scene> sceneDic;
         private static Scene curScene;
-
+        private static bool gameEnd;
+        //  플래이어 쓸래요
         private static Player player;
         public static Player Player { get { return player; } }
-
-        private static bool gameEnd;
+        
+        //  이전 장면의 대한 정보를 저장할래요
+        public static string prevSceneName;
 
         //  시작기능
         public static void Start()
         {
+            //  커서 가릴래용
             Console.CursorVisible = false;
+            //  게임 실행 할거에용
             gameEnd = false;
+            //  플레이어 추가할래용
             player = new Player();
 
             sceneDic = new Dictionary<string, Scene>();
             sceneDic.Add("Title", new Title());
-            sceneDic.Add("Test01", new Test01());
-            sceneDic.Add("Test02", new Test02());
-            sceneDic.Add("Test03", new Test03());
             sceneDic.Add("Field01", new Field01());
             sceneDic.Add("Town01", new Town01());
+            sceneDic.Add("Normal01", new Normal01());
 
             curScene = sceneDic["Title"];
 
@@ -61,7 +64,12 @@ namespace ProjectMud
         //  장면 전환기능
         public static void SceneChange(string sceneName)
         {
+            //  이동 전에 저장할래용
+            prevSceneName = curScene.name;
+            curScene.Exit();
+            //  이동할게용
             curScene = sceneDic[sceneName];
+            curScene.Enter();
         }
 
     }

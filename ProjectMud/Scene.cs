@@ -9,10 +9,14 @@ namespace ProjectMud
     //  하위 장면 구현을 위한 추상 클래스 선언
     public abstract class Scene
     {
+        public string name;
+
         public abstract void Render();
         public abstract void Input();
         public abstract void Update();
         public abstract void Result();
 
+        public virtual void Enter() { }
+        public virtual void Exit() { }
     }
 }

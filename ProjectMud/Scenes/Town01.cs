@@ -8,24 +8,34 @@ namespace ProjectMud.Scenes
 {
     public class Town01 : Scene
     {
+        private ConsoleKey input;
         public override void Input()
         {
-            throw new NotImplementedException();
+            input = Console.ReadKey(true).Key;
         }
 
         public override void Render()
         {
-            Util.TextLine();
+            Console.WriteLine("마을01");
+            Console.WriteLine("마을이다.");
+            Console.WriteLine("01 - 필드로");
         }
 
         public override void Result()
         {
-            throw new NotImplementedException();
+            switch (input)
+            {
+                case ConsoleKey.D1:
+                    Util.PressKey("마을 밖으로");
+                    Game.SceneChange("Field01");
+                    break;
+                default:
+                    break;
+            }
         }
 
         public override void Update()
         {
-            throw new NotImplementedException();
         }
     }
 }

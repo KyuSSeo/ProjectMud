@@ -17,7 +17,8 @@ namespace ProjectMud
         }
         public static void TextLine()
         {
-            Console.WriteLine();
+            //아래쪽에다가 출력할래요
+            Console.SetCursorPosition(0, 10);
             Console.WriteLine("*********************************");
             Console.WriteLine();
         }

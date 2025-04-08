@@ -2,11 +2,11 @@
 
 namespace ProjectMud.Scenes
 {
-    public class Field01 : FieldBase
+    public class Normal01 : FieldBase
     {
-        public Field01()
+        public Normal01()
         {
-            name = "Field01";
+            name = "Normal01";
             //  맵 정보 만들기
             mapData = new string[]
             {  //123456789
@@ -34,14 +34,14 @@ namespace ProjectMud.Scenes
 
             //  오브젝트 설정
             gameObjs = new List<GameObj>();
-            gameObjs.Add(new Place("Normal1", 'W', new Vectors(1, 1)));
+            gameObjs.Add(new Place("Field01", 'W', new Vectors(1, 1)));
 
             
         }
         public override void Enter()
         {
             // 플레이어 진입 장면에 따른 위치 설정
-            if (Game.prevSceneName == "Normal01")
+            if (Game.prevSceneName == "Field01")
             {
                 Game.Player.pos = new Vectors(1, 2);
             }

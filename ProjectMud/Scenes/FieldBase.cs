@@ -35,7 +35,6 @@ namespace ProjectMud.Scenes
 
             Console.SetCursorPosition(0, map.GetLength(0));
             Game.TextLine();
-            Game.Player.Inventory.PrintAllItems();
         }
 
         public override void Result()

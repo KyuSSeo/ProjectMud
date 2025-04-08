@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace ProjectMud.Scenes
 {
-    public class Town01 : Scene
+    public class Trader01 : Scene
     {
         private ConsoleKey input;
-        public Town01()
+        public Trader01()
         {
-            name = "Town01";
+            name = "Trader01";
         }
         public override void Input()
         {
@@ -20,12 +20,11 @@ namespace ProjectMud.Scenes
 
         public override void Render()
         {
-            Console.WriteLine("마을01");
-            Console.WriteLine("마을이다.");
-            Console.WriteLine("01 - 마을 밖 필드로"); 
-            Console.WriteLine("02 - 테스트 필드로");
-            Console.WriteLine("03 - 마을 상인에게");
-
+            Console.WriteLine("상인01");
+            Console.WriteLine("상인이다..");
+            Console.WriteLine("01 - 거래한다.");
+            Console.WriteLine("02 - 대화한다.");
+            Console.WriteLine("03 - 마을로 돌아간다.");
         }
 
         public override void Result()
@@ -33,16 +32,14 @@ namespace ProjectMud.Scenes
             switch (input)
             {
                 case ConsoleKey.D1:
-                    Util.PressKey("마을 밖으로");
-                    Game.SceneChange("Field01");
+                    //  TODO : 거래 기능 구현
                     break;
                 case ConsoleKey.D2:
-                    Util.PressKey("테스트 필드로");
-                    Game.SceneChange("TestField01");
+                    //  TODO : 간단한 대화기능 구현
                     break;
                 case ConsoleKey.D3:
-                    Util.PressKey("마을 상인에게");
-                    Game.SceneChange("Trader01");
+                    Util.PressKey("상인은 인사를 잔뜩 쓰고서 외쳤다. 안 살거면 나가.");
+                    Game.SceneChange("Town01");
                     break;
                 default:
                     break;
@@ -51,6 +48,7 @@ namespace ProjectMud.Scenes
 
         public override void Update()
         {
+         
         }
     }
 }

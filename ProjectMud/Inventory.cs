@@ -171,8 +171,7 @@ namespace ProjectMud
                     break;
             }
         }
-
-
+   
         public void PrintAllItems()
         {
             Console.SetCursorPosition(0, 15);

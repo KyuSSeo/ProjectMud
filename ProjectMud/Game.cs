@@ -39,7 +39,7 @@ namespace ProjectMud
             sceneDic.Add("Town01", new Town01());
             sceneDic.Add("Normal01", new Normal01());
             sceneDic.Add("TestField01", new TestField01());
-
+            sceneDic.Add("Trader01", new Trader01());
             curScene = sceneDic["Title"];
 
         }
@@ -80,7 +80,6 @@ namespace ProjectMud
         public static void TextLine()
         {
             //아래쪽에다가 출력할래요
-            //  TODO : 플레이어 스텟을 구현한 뒤 셋 포지션 기능을 이용해 플레이어 정보 및 기본 메뉴를 띄우고 싶다.
             for (int i = 0; i < 10; i++)
             {
                 Console.SetCursorPosition(15, i);

@@ -22,7 +22,7 @@ namespace ProjectMud.Scenes
             Console.WriteLine();
             Console.WriteLine("1 - 테스트01");
             Console.WriteLine("2 - 테스트02");
-            Console.WriteLine("3 - 타이틀");        }
+            Console.WriteLine("3 - 필드 01");        }
 
         public override void Result()
         {
@@ -43,8 +43,8 @@ namespace ProjectMud.Scenes
                     break;
                 case ConsoleKey.D3:
 
-                    Util.PressKey("타이틀로");
-                    Game.SceneChange("Title");
+                    Util.PressKey("필드로");
+                    Game.SceneChange("Field01");
                     break;
                 default:
                     break;

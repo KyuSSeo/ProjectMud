@@ -7,25 +7,32 @@ using ProjectMud.Scenes;
 
 namespace ProjectMud
 {
-    public static class Game
+    class Game
     {
         private static Dictionary<string, Scene> sceneDic;
         private static Scene curScene;
+
+        private static Player player;
+        public static Player Player { get { return player; } }
 
         private static bool gameEnd;
 
         //  시작기능
         public static void Start()
         {
+            Console.CursorVisible = false;
             gameEnd = false;
+            player = new Player();
 
             sceneDic = new Dictionary<string, Scene>();
             sceneDic.Add("Title", new Title());
             sceneDic.Add("Test01", new Test01());
             sceneDic.Add("Test02", new Test02());
             sceneDic.Add("Test03", new Test03());
+            sceneDic.Add("Field01", new Field01());
 
             curScene = sceneDic["Title"];
+
         }
 
         //  동작기능

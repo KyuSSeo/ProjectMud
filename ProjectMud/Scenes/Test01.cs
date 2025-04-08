@@ -22,7 +22,8 @@ namespace ProjectMud.Scenes
             Console.WriteLine();
             Console.WriteLine("1 - 테스트02");
             Console.WriteLine("2 - 테스트03");
-            Console.WriteLine("3 - 타이틀");        }
+            Console.WriteLine("3 - 타이틀");        
+        }
 
         public override void Result()
         {

@@ -15,5 +15,11 @@ namespace ProjectMud
             Console.WriteLine("진행하려면 아무 키나 입력해 주세요...");
             Console.ReadKey(true);
         }
-    }
+        public static void TextLine()
+        {
+            Console.WriteLine();
+            Console.WriteLine("*********************************");
+            Console.WriteLine();
+        }
+    }   
 }

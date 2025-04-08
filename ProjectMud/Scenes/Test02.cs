@@ -42,7 +42,6 @@ namespace ProjectMud.Scenes
                     Game.SceneChange("Test03");
                     break;
                 case ConsoleKey.D3:
-
                     Util.PressKey("타이틀로");
                     Game.SceneChange("Title");
                     break;

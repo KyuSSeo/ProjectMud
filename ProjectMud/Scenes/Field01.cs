@@ -1,4 +1,5 @@
 ﻿using ProjectMud.GameObject;
+using ProjectMud.Items;
 
 namespace ProjectMud.Scenes
 {
@@ -11,7 +12,7 @@ namespace ProjectMud.Scenes
             mapData = new string[]
             {  //123456789
                 "#########",//1
-                "#       #",//2
+                "        #",//2
                 "#       #",//3
                 "#       #",//4
                 "#       #",//5
@@ -34,8 +35,8 @@ namespace ProjectMud.Scenes
 
             //  오브젝트 설정
             gameObjs = new List<GameObj>();
-            gameObjs.Add(new Place("Town01", 'W', new Vectors(1, 1)));
-
+            gameObjs.Add(new Place("Town01", 'W', new Vectors(0, 1)));
+            gameObjs.Add(new Potion(new Vectors(1, 6)));
             
         }
         public override void Enter()
@@ -43,7 +44,7 @@ namespace ProjectMud.Scenes
             // 플레이어 진입 장면에 따른 위치 설정
             if (Game.prevSceneName == "Town01")
             {
-                Game.Player.pos = new Vectors(1, 2);
+                Game.Player.pos = new Vectors(1, 1);
             }
             Game.Player.map = map;
 

@@ -31,9 +31,9 @@ namespace ProjectMud.Scenes
             {
                 go.PrintObj();
             }
-
-            
             Game.Player.PlayerPrint();
+
+            Console.SetCursorPosition(0, map.GetLength(0) + 2);
         }
 
         public override void Result()
@@ -43,6 +43,12 @@ namespace ProjectMud.Scenes
                 if (Game.Player.pos == go.pos)
                 {
                     go.Interact(Game.Player);
+                    //  일회성인가요?
+                    if(go.isOnece == true)
+                    {
+                        gameObjs.Remove(go);
+                    }
+                    break;
                 }
             }
         }

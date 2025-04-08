@@ -10,7 +10,7 @@ namespace ProjectMud.GameObject
     {
         private string scene;
         public Place(string scene, char symbol, Vectors pos)
-            : base(ConsoleColor.Green, symbol, pos)
+            : base(ConsoleColor.Green, symbol, pos, false)
         {   
             this.scene = scene;
         }

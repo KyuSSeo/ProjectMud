@@ -8,8 +8,32 @@ namespace ProjectMud
 {
     public class Player
     {
+        private int curHp;
+        private int maxHp;
+        private Inventory inventory;
+
         public Vectors pos;
         public bool[,] map;
+        public Inventory Inventory { get { return inventory; } }
+        public int CurHp { get { return curHp; } }
+        public int MaxHp { get { return maxHp; } }
+
+
+        public Player()
+        {
+            this.maxHp = 100;
+            this.curHp = maxHp;
+            this.inventory = inventory;
+        }
+
+        public void Heal(int quantity)
+        {
+            curHp += quantity;
+            if (curHp > maxHp)
+            {
+                curHp = maxHp;
+            }
+        }
 
         public void PlayerPrint()
         {

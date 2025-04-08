@@ -13,12 +13,14 @@ namespace ProjectMud
         public ConsoleColor color;
         public char symbol;
         public Vectors pos;
+        public bool isOnece;
 
-        public GameObj(ConsoleColor color, char symbol, Vectors pos)
+        public GameObj(ConsoleColor color, char symbol, Vectors pos, bool isOnece)
         {
             this.color = color;
             this.symbol = symbol;
             this.pos = pos;
+            this.isOnece = isOnece;
         }
 
         public void PrintObj()

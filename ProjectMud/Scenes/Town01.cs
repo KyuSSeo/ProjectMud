@@ -9,6 +9,10 @@ namespace ProjectMud.Scenes
     public class Town01 : Scene
     {
         private ConsoleKey input;
+        public Town01()
+        {
+            name = "Town01";
+        }
         public override void Input()
         {
             input = Console.ReadKey(true).Key;

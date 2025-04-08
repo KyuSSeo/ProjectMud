@@ -34,14 +34,14 @@ namespace ProjectMud.Scenes
 
             //  오브젝트 설정
             gameObjs = new List<GameObj>();
-            gameObjs.Add(new Place("Normal1", 'W', new Vectors(1, 1)));
+            gameObjs.Add(new Place("Town01", 'W', new Vectors(1, 1)));
 
             
         }
         public override void Enter()
         {
             // 플레이어 진입 장면에 따른 위치 설정
-            if (Game.prevSceneName == "Normal01")
+            if (Game.prevSceneName == "Town01")
             {
                 Game.Player.pos = new Vectors(1, 2);
             }

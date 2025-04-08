@@ -64,7 +64,7 @@ namespace ProjectMud
         //  종료기능 
         public static void End()
         {
-
+            gameEnd = true;
         }
         //  장면 전환기능
         public static void SceneChange(string sceneName)

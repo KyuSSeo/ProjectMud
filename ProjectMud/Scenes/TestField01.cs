@@ -42,7 +42,8 @@ namespace ProjectMud.Scenes
             gameObjs.Add(new Place("Town01", 'W', new Vectors(8, 1)));
             //  포션 테스트용
             gameObjs.Add(new Potion(new Vectors(1, 6)));
-            
+            gameObjs.Add(new HealingPool(new Vectors(3, 6)));
+            gameObjs.Add(new PoisonPool(new Vectors(5, 6)));
         }
         public override void Enter()
         {

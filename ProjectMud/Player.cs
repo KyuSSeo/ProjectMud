@@ -40,7 +40,14 @@ namespace ProjectMud
                 curHp = maxHp;
             }
         }
-
+        public void Damaged(int quantity)
+        {
+            curHp -= quantity;
+            if (0 > curHp)
+            {
+                Game.End();    
+            }
+        }
         public void PlayerPrint()
         {
             Console.SetCursorPosition(pos.x, pos.y);

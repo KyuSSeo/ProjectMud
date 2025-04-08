@@ -10,22 +10,28 @@ namespace ProjectMud.Scenes
     {
         public override void Input()
         {
-            throw new NotImplementedException();
+            Util.PressKey("");
         }
 
         public override void Render()
         {
-            throw new NotImplementedException();
+
+
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("         The Title");
+            Console.WriteLine(); 
+            Console.WriteLine();
+
         }
 
         public override void Result()
         {
-            throw new NotImplementedException();
+            Game.SceneChange("Test01");
         }
 
         public override void Update()
         {
-            throw new NotImplementedException();
         }
     }
 }

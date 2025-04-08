@@ -21,6 +21,9 @@ namespace ProjectMud
 
             sceneDic = new Dictionary<string, Scene>();
             sceneDic.Add("Title", new Title());
+            sceneDic.Add("Test01", new Test01());
+            sceneDic.Add("Test02", new Test02());
+            sceneDic.Add("Test03", new Test03());
 
             curScene = sceneDic["Title"];
         }

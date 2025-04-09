@@ -13,12 +13,9 @@ namespace ProjectMud
         private Stack<string> stack;
         private int selectIndex;
         private ConsoleKey input;
-        private Inventory inventory;
-        public Inventory Inventory { get { return inventory; } }
 
         public GameMenu()
         {
-            inventory = new Inventory();
             options = new List<string>();
             stack = new Stack<string>();
         }
@@ -49,7 +46,7 @@ namespace ProjectMud
 
         private void OpenItem()
         {
-            inventory.ItemOpen();
+            Game.Player.Inventory.ItemOpen();
             stack.Pop();
         }
         private void MenuMain()

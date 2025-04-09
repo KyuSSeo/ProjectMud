@@ -30,18 +30,60 @@ namespace ProjectMud
                 switch (stack.Peek())
                 {
                     case "MenuMain":
-                        MenuMain(); break;
+                        MenuMain();     break;
                     case "OpenItem":
-                        OpenItem(); break;
+                        OpenItem();     break;
                     case "PlayerInfo":
-                        break;
-                    case "SaveEnd":
-                        break;
-                    case "GameEnd":
-                        break;
+                        PlayerInfo();   break;
+                    case "SaveLoad":
+                        SaveLoad();     break;
+                    case "TitleOrEnd":
+                        TitleOrEnd();   break;
                 }
             }
             
+        }
+        private void PlayerInfo()
+        {   // TODO : 스텟, 장비 구현 후 여기에 적어야 한다.
+            Console.WriteLine("**************************");
+            Console.WriteLine($"플래이어의 Hp / hp  : {Game.Player.MaxHp} / {Game.Player.CurHp}");
+            Console.WriteLine("플레이어의 공격력 : {0}");
+            Console.WriteLine("플레이어의 방어력 : {0}");
+            Console.WriteLine("플레이어의 장비 1 : {0}");
+            Console.WriteLine("플레이어의 장비 2 : {0}");
+            Console.WriteLine("플레이어의 장비 3 : {0}");
+            Console.WriteLine("플레이어의 장비 4 : {0}");
+            Console.WriteLine("**************************");
+            Util.PressKey("");
+            stack.Pop();
+        }
+        private void SaveLoad()
+        {
+            //  TODO : 세이브 로드 기능 구현
+            Util.PressKey("");
+            stack.Pop();
+        }
+        private void TitleOrEnd()
+        {
+            Console.WriteLine("1. 타이틀로.");
+            Console.WriteLine("2. 게임을 종료.");
+            Console.WriteLine("0. 메뉴로 돌아간다..");
+
+            input = Console.ReadKey(true).Key;
+            switch (input)
+            {
+                case ConsoleKey.D1:
+                    stack.Clear();
+                    Game.SceneChange("Title");
+                    break;
+                case ConsoleKey.D2:
+                    stack.Clear();
+                    Game.SceneChange("EndScene");
+                    break;
+                case ConsoleKey.D0:
+                    stack.Pop();
+                    break;
+            }
         }
 
         private void OpenItem()
@@ -62,10 +104,10 @@ namespace ProjectMud
                     stack.Push("PlayerInfo");
                     break;
                 case ConsoleKey.D3:
-                    stack.Push("SaveEnd");
+                    stack.Push("SaveLoad");
                     break;
                 case ConsoleKey.D4:
-                    stack.Push("GameEnd");
+                    stack.Push("TitleOrEnd");
                     break;
                 case ConsoleKey.D0:
                     stack.Pop();

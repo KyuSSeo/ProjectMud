@@ -26,7 +26,7 @@ namespace ProjectMud.Scenes
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("       당신의 눈앞이 깜깜해졌다.");
+            Console.WriteLine("       게임을 종료합니다.");
             Console.WriteLine();
             Console.WriteLine();
 

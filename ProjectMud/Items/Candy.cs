@@ -10,10 +10,10 @@ namespace ProjectMud.Items
     public class Candy : Item
     {
         public Candy(Vectors pos)
-        : base('C',pos)
+        : base('I',pos)
         {
             name = "수상한 사탕";
-            description = "포도맛이다. 먹으면 어딘가 배가 아프다.";
+            description = "포도맛이다. 먹으면 배가 아프다.";
         }
         public override void Use()
         {

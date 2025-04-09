@@ -120,8 +120,7 @@ namespace ProjectMud
             Console.SetCursorPosition(0, 0);
             Console.WriteLine("=========================");
             Console.WriteLine("1. 가방을 열기");
-            Console.WriteLine("2. 캐릭터의 정보를 확인하기(미구현)");
-            //  TODO : 정보확인 구현 
+            Console.WriteLine("2. 캐릭터의 정보를 확인하기");
             Console.WriteLine("3. 저장 / 불러오기 (미구현)");
             // TODO : 세이브 구현
             Console.WriteLine("4. 게임을 종료하기");

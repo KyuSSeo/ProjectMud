@@ -28,7 +28,7 @@ namespace ProjectMud
         public int MaxHp { get { return maxHp; } }
 
         public Action OnDied;
-
+        public Action PcInteract;
         public Player()
         {
             //  플레이어가 인벤토리를 가지지 않으면 상호작용이 불가능했음
@@ -51,14 +51,11 @@ namespace ProjectMud
             curHp -= quantity;
             if (0 > curHp)
             {
-                PcDie();    
+                OnDied();
             }
         }
 
-        public void PcDie()
-        {
-            Game.EndTriger();
-        }
+
         public void PlayerPrint()
         {
             Console.SetCursorPosition(pos.x, pos.y);

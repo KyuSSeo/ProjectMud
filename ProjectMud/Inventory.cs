@@ -59,7 +59,7 @@ namespace ProjectMud
         private void DropConfrim()
         {
             Item selectItem = items[selectIndex];
-            Console.WriteLine("{0} 을 버리시겠습니까?");
+            Console.WriteLine("{0} 을 버리시겠습니까?", selectItem.name);
             Console.WriteLine("1. 버린다.");
             Console.WriteLine("2. 버리지 않는다.");
             input = Console.ReadKey(true).Key;
@@ -81,7 +81,7 @@ namespace ProjectMud
         private void UseConfrim()
         {
             Item selectItem = items[selectIndex];
-            Console.WriteLine("{0} 을 사용하시겠습니까?");
+            Console.WriteLine("{0} 을 사용하시겠습니까?",selectItem.name);
             Console.WriteLine("1. 사용한다.");
             Console.WriteLine("2. 사용하지 않는다.");
             input = Console.ReadKey(true).Key;

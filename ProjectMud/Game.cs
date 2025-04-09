@@ -5,10 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using ProjectMud.Scenes;
 
-
-//  TODO : 매뉴를 따로 관리하고 싶어요.
-//  TODO : 저장기능도 만들고 싶어요.
-
 namespace ProjectMud
 {
     public static class Game
@@ -32,7 +28,7 @@ namespace ProjectMud
             gameEnd = false;
             //  플레이어 추가할래용
             player = new Player();
-
+            //  PC데미지도 델리게이트로 관리해야 할까?
             //  델리게이트로 게임오버 관리할레요
             player.OnDied += Game.EndTriger;
 
@@ -69,7 +65,6 @@ namespace ProjectMud
         //  종료기능 
         public static void End()
         {
-            //  TODO : 게임 종료도 장면으로 다룰까요?
             gameEnd = true;
         }
         //  장면 전환기능

@@ -13,7 +13,7 @@ namespace ProjectMud.GameObject
         {  }
         public override void Interact(Player player)
         {
-            player.Heal(100);
+            player.Heal(player.MaxHp);
         }
     }
 }

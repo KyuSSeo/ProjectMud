@@ -16,10 +16,14 @@ namespace ProjectMud
         private int curHp;
         private int maxHp;
         private Inventory inventory;
+        public Inventory Inventory { get { return inventory; } }
+
+
+        private GameMenu gameMenu;
 
         public Vectors pos;
         public bool[,] map;
-        public Inventory Inventory { get { return inventory; } }
+        public GameMenu GameMenu { get{ return gameMenu; } }
         public int CurHp { get { return curHp; } }
         public int MaxHp { get { return maxHp; } }
 
@@ -27,8 +31,9 @@ namespace ProjectMud
 
         public Player()
         {
-
+            //  플레이어가 인벤토리를 가지지 않으면 상호작용이 불가능했음
             inventory = new Inventory();
+            gameMenu = new GameMenu();
             this.maxHp = 100;
             this.curHp = maxHp;
         }
@@ -52,7 +57,6 @@ namespace ProjectMud
 
         public void PcDie()
         {
-            //  TODO : 게임 오버 UI만들기
             Game.EndTriger();
         }
         public void PlayerPrint()
@@ -73,8 +77,8 @@ namespace ProjectMud
                 case ConsoleKey.DownArrow:
                     Move(input);
                     break;
-                case ConsoleKey.I:
-                    inventory.Open();
+                case ConsoleKey.M:
+                    GameMenu.MenuOpen();
                     break;
                 default:
                     break;

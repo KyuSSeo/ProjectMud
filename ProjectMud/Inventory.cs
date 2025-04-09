@@ -11,7 +11,7 @@ namespace ProjectMud
     public class Inventory
     {   //  아이템을 리스트로 관리할래요
         private List<Item> items;
-        //  스텍으로 메뉴를 관리할래요.
+        //  스텍으로 인벤토리를 관리할래요.
         private Stack<string> stack;
         private int selectIndex;
         private ConsoleKey input;
@@ -38,15 +38,15 @@ namespace ProjectMud
         {
             items[index].Use();
         }
-        public void Open()
+        public void ItemOpen()
         {
-            stack.Push("Menu");
+            stack.Push("ItemMenu");
             while (stack.Count > 0)
             {
                 Console.Clear();
                 switch (stack.Peek())
                 {
-                    case "Menu":        Menu();         break;
+                    case "ItemMenu":    ItemMenu();     break;
                     case "UseMenu":     UseMenu();      break;
                     case "DropMenu":    DropMenu();     break;
                     case "UseConfrim":  UseConfrim();   break;
@@ -150,7 +150,7 @@ namespace ProjectMud
             }
         }
 
-        private void Menu()
+        private void ItemMenu()
         {
             PrintAllItems();
             Console.WriteLine("1. 사용");

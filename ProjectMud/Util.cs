@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectMud
 {
-   public class Util
+    public class Util
     {
         public static void PressKey(string text)
         {

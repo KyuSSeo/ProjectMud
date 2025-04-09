@@ -50,6 +50,7 @@ namespace ProjectMud
         private void OpenItem()
         {
             inventory.ItemOpen();
+            stack.Pop();
         }
         private void MenuMain()
         {

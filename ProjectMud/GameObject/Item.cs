@@ -21,7 +21,8 @@ namespace ProjectMud.GameObject
         //  플레이어 인벤토리로 쏘옥
         public override void Interact(Player player)
         {
-            player.Inventory.Add(this);    
+            player.Inventory.Add(this);
+            Util.InteractText("아이템을 주웠다!");
         }
 
         //  아이템 각각의 사용 기능을 넣기

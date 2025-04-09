@@ -14,6 +14,7 @@ namespace ProjectMud.GameObject
         public override void Interact(Player player)
         {
             player.Heal(player.MaxHp);
+            Util.InteractText("체력이 회복되었다!");
         }
     }
 }

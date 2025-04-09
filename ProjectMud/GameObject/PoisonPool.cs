@@ -14,6 +14,7 @@ namespace ProjectMud.GameObject
         public override void Interact(Player player)
         {
             player.Damaged(40);
+            Util.InteractText("데미지를 입었다!");
         }
     }
 }

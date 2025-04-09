@@ -30,7 +30,7 @@ namespace ProjectMud
             player = new Player();
             //  PC데미지도 델리게이트로 관리해야 할까?
             //  델리게이트로 게임오버 관리할레요
-             player.OnDied += Game.EndTriger;
+            player.OnDied += Game.EndTriger;
             // player.PcInteract += ;
             sceneDic = new Dictionary<string, Scene>();
             sceneDic.Add("Title", new Title());

@@ -14,6 +14,7 @@ namespace ProjectMud.Items
         {
             name = "수상한 사탕";
             description = "포도맛이다. 먹으면 배가 아프다.";
+            itemType = ItemType.ConsumAble;
         }
         public override void Use()
         {

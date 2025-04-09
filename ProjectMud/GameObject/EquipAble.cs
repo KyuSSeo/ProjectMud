@@ -20,7 +20,7 @@ namespace ProjectMud.GameObject
         public override void Use()
         {
             if (isEquip == false)
-            {   //한줄로 표현하는 방식이 있던 것 같은데.
+            {   
                 isEquip = true;
                 EquipItem();
             }

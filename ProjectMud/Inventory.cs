@@ -91,7 +91,8 @@ namespace ProjectMud
                 case ConsoleKey.D1:
                     selectItem.Use();
                     Util.PressKey("");
-                    Remove(selectItem);
+                    if (selectItem.itemType == ItemType.ConsumAble)
+                    { Remove(selectItem); }
                     stack.Pop();
                     break;
                 case ConsoleKey.D2:

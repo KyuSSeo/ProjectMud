@@ -14,6 +14,7 @@ namespace ProjectMud.Items
         {
             name = "포션";
             description = "마시면 체력을 회복한다. 딸기맛이다.";
+            itemType = ItemType.ConsumAble;
         }
         public override void Use()
         {

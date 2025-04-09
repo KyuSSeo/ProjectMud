@@ -11,6 +11,7 @@ namespace ProjectMud.GameObject
         //  아이템에는 이름과 설명이 필요해요.
         public string name;
         public string description;
+        public ItemType itemType;
 
         public Item(char symbol, Vectors pos) 
             : base(ConsoleColor.Yellow, symbol, pos, true)

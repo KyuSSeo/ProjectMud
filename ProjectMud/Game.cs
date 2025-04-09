@@ -7,6 +7,9 @@ using ProjectMud.Scenes;
 
 namespace ProjectMud
 {
+    public enum ItemType
+    { Equip, ConsumAble, UnConsumAble }
+
     public static class Game
     {
         private static Dictionary<string, Scene> sceneDic;

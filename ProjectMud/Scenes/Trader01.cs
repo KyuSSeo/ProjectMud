@@ -38,7 +38,7 @@ namespace ProjectMud.Scenes
                     //  TODO : 간단한 대화기능 구현
                     break;
                 case ConsoleKey.D3:
-                    Util.PressKey("상인은 인사를 잔뜩 쓰고서 외쳤다. 안 살거면 나가.");
+                    Util.PressKey("마을로 나왔다.");
                     Game.SceneChange("Town01");
                     break;
                 default:

@@ -174,7 +174,7 @@ namespace ProjectMud
    
         public void PrintAllItems()
         {
-            Console.SetCursorPosition(0, 15);
+            Console.SetCursorPosition(0, 0);
             Console.WriteLine("소유한 아이템");
             if(items.Count == 0)
             {

@@ -23,6 +23,7 @@ namespace ProjectMud
         public int CurHp { get { return curHp; } }
         public int MaxHp { get { return maxHp; } }
 
+        public Action OnDied;
 
         public Player()
         {
@@ -45,8 +46,14 @@ namespace ProjectMud
             curHp -= quantity;
             if (0 > curHp)
             {
-                Game.End();    
+                PcDie();    
             }
+        }
+
+        public void PcDie()
+        {
+            //  TODO : 게임 오버 UI만들기
+            Game.EndTriger();
         }
         public void PlayerPrint()
         {

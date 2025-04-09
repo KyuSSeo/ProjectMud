@@ -33,6 +33,9 @@ namespace ProjectMud
             //  플레이어 추가할래용
             player = new Player();
 
+            //  델리게이트로 게임오버 관리할레요
+            player.OnDied += Game.EndTriger;
+
             sceneDic = new Dictionary<string, Scene>();
             sceneDic.Add("Title", new Title());
             sceneDic.Add("Field01", new Field01());
@@ -40,6 +43,8 @@ namespace ProjectMud
             sceneDic.Add("Normal01", new Normal01());
             sceneDic.Add("TestField01", new TestField01());
             sceneDic.Add("Trader01", new Trader01());
+            sceneDic.Add("EndScene", new EndScene());
+
             curScene = sceneDic["Title"];
 
         }
@@ -64,6 +69,7 @@ namespace ProjectMud
         //  종료기능 
         public static void End()
         {
+            //  TODO : 게임 종료도 장면으로 다룰까요?
             gameEnd = true;
         }
         //  장면 전환기능
@@ -75,6 +81,10 @@ namespace ProjectMud
             //  이동할게용
             curScene = sceneDic[sceneName];
             curScene.Enter();
+        }
+        public static void EndTriger()
+        {
+            SceneChange("EndScene");
         }
 
         public static void TextLine()
@@ -107,8 +117,6 @@ namespace ProjectMud
             Console.SetCursorPosition(17, 6);
             Console.Write("I : 가방 열기");
             Console.SetCursorPosition(17, 7);
-
-
         }
 
     }

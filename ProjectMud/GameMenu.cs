@@ -1,9 +1,4 @@
-﻿using ProjectMud.GameObject;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Serialization.Formatters;
 
 namespace ProjectMud
 {
@@ -13,7 +8,6 @@ namespace ProjectMud
         private Stack<string> stack;
         private int selectIndex;
         private ConsoleKey input;
-        private string notthig = "없음";
         public GameMenu()
         {
             options = new List<string>();
@@ -21,54 +15,43 @@ namespace ProjectMud
         }
 
 
-        public void MenuOpen() 
+        public void MenuOpen()
         {
             stack.Push("MenuMain");
-            while (stack.Count>0)
+            while (stack.Count > 0)
             {
                 Console.Clear();
                 switch (stack.Peek())
                 {
                     case "MenuMain":
-                        MenuMain();     break;
+                        MenuMain(); break;
                     case "OpenItem":
-                        OpenItem();     break;
+                        OpenItem(); break;
                     case "PlayerInfo":
-                        PlayerInfo();   break;
+                        PlayerInfo(); break;
                     case "SaveLoad":
-                        SaveLoad();     break;
+                        SaveLoad(); break;
                     case "TitleOrEnd":
-                        TitleOrEnd();   break;
+                        TitleOrEnd(); break;
                 }
             }
-            
+
         }
-        private string isExist(int equipNum)
+        private void isExist()
         {
-            string result = "0";
-            /*
-             *  장비품 리스트의 장비한 번호를 보고
-             *  장비한 번호에 있는 장비 이름을 반환하고 싶어
-             *  
-             *  그런데 만약 장비하고 있는 장비가 없다면
-             *  "장비하지 않음" 을 반환하고 싶어
-             */
-
-            result = Game.Player.Inventory.equips[equipNum].name; 
-
-            return result;
+            int num = Game.Player.Inventory.equips.Count;
+            for (int i = 0; i < num; i++)
+            {
+                Console.WriteLine("착용하고 있는 장비 {0} : {1}", i + 1, Game.Player.Inventory.equips[i].name);
+            }
         }
         private void PlayerInfo()
-        {   
+        {
             Console.WriteLine("**************************");
             Console.WriteLine($"플래이어의 Hp / hp  : {Game.Player.MaxHp} / {Game.Player.CurHp}");
-            // TODO : 공격, 방어 구현
-            //Console.WriteLine("플레이어의 공격력 : {0}");
-            //Console.WriteLine("플레이어의 방어력 : {0}");
-            Console.WriteLine("플레이어의 장비 1 : {0}", isExist(0));
-            Console.WriteLine("플레이어의 장비 2 : {0}");
-            Console.WriteLine("플레이어의 장비 3 : {0}");
-            Console.WriteLine("플레이어의 장비 4 : {0}");
+            Console.WriteLine("플레이어의 공격력 : {0}", Game.Player.Atk);
+            Console.WriteLine("플레이어의 방어력 : {0}", Game.Player.Def);
+            isExist();
             Console.WriteLine("**************************");
             Util.PressKey("");
             stack.Pop();

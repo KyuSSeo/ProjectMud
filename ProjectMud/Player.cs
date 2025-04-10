@@ -14,17 +14,23 @@ namespace ProjectMud
     {
         private int curHp;
         private int maxHp;
+        private int atk;
+        private int def;
+
         private Inventory inventory;
-        public Inventory Inventory { get { return inventory; } }
-
-
         private GameMenu gameMenu;
 
         public Vectors pos;
         public bool[,] map;
         public GameMenu GameMenu { get{ return gameMenu; } }
+        public Inventory Inventory { get { return inventory; } }
+
         public int CurHp { get { return curHp; } }
         public int MaxHp { get { return maxHp; } }
+        public int Atk { get { return atk; } }
+        public int Def { get { return def; } }
+
+
 
         public Action OnDied;
         public Action PcInteract;
@@ -37,6 +43,8 @@ namespace ProjectMud
             gameMenu = new GameMenu();
             this.maxHp = 100;
             this.curHp = maxHp;
+            this.atk = 5;
+            this.def = 3;
         }
 
         public void Heal(int quantity)
@@ -59,6 +67,10 @@ namespace ProjectMud
         public void StateMaxHpCh(int quantity)
         {
             maxHp += quantity;
+        }
+        public void StateDefCh(int quantity)
+        {
+            def += quantity;
         }
         public void PlayerPrint()
         {

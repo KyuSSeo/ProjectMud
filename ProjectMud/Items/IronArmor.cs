@@ -17,13 +17,15 @@ namespace ProjectMud.Items
         
         public override void EquipItem(Player player)
         {
-            player.StateMaxHpCh(100);
+            player.StateMaxHpCh(30);
+            player.StateDefCh(2);
             
         }
 
         public override void UnEquipItem(Player player)
         {
             player.StateMaxHpCh(-100);
+            player.StateDefCh(-2);
         }
     }
 }

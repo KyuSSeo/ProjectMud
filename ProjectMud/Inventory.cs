@@ -122,14 +122,6 @@ namespace ProjectMud
             }
         }
 
-        private void EquipAdd(EquipAble equipment)
-        {
-            equips.Add(equipment);
-        }
-        private void EquipRemove(EquipAble equipment)
-        {
-            equips.Remove(equipment);
-        }
         private void DropMenu()
         {
             PrintAllItems();
@@ -216,5 +208,14 @@ namespace ProjectMud
             }
             Console.WriteLine("==========");
         }
+        private void EquipAdd(EquipAble equipment)
+        {
+            equips.Add(equipment);
+        }
+        private void EquipRemove(EquipAble equipment)
+        {
+            equips.Remove(equipment);
+        }
+
     }
 }

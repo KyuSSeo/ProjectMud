@@ -9,6 +9,8 @@ namespace ProjectMud
 {
     public class Util
     {
+
+        //  키 입력대기
         public static void PressKey(string text)
         {
             Console.WriteLine();
@@ -18,6 +20,8 @@ namespace ProjectMud
             Console.ReadKey(true);
         }
 
+
+        //  상호작용용 UI 
         public static void InteractText(string text)
         {
             Console.SetCursorPosition(0, 13);

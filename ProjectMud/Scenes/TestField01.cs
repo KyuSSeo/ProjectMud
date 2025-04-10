@@ -39,6 +39,7 @@ namespace ProjectMud.Scenes
             gameObjs.Add(new Place("Town01", 'W', new Vectors(8, 1)));
             //  포션 테스트용
             gameObjs.Add(new Candy(new Vectors(1, 6)));
+            gameObjs.Add(new Stick(new Vectors(1, 5)));
             gameObjs.Add(new HealingPool(new Vectors(3, 6)));
             gameObjs.Add(new PoisonPool(new Vectors(5, 6)));
             gameObjs.Add(new IronArmor(new Vectors(7, 6)));

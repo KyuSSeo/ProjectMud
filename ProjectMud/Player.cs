@@ -11,15 +11,18 @@ using System.Threading.Tasks;
 namespace ProjectMud
 {
     public class Player
-    {
+    {   //  플레이어 스텟
         private int curHp;
         private int maxHp;
         private int atk;
         private int def;
 
+        //  인벤토리를 가짐
         private Inventory inventory;
+        //  게임메뉴를 가짐
         private GameMenu gameMenu;
 
+        //  맵에서의 위치정보를 가짐 
         public Vectors pos;
         public bool[,] map;
         public GameMenu GameMenu { get{ return gameMenu; } }
@@ -31,14 +34,14 @@ namespace ProjectMud
         public int Def { get { return def; } }
 
 
-
+        //  델리게이트
         public Action OnDied;
         public Action PcInteract;
 
 
         public Player()
         {
-            //  플레이어가 인벤토리를 가지지 않으면 상호작용이 불가능했음
+            //  인벤토리, 메뉴 기능과의 상호작용을 위한 소유
             inventory = new Inventory();
             gameMenu = new GameMenu();
             this.maxHp = 100;
@@ -57,7 +60,7 @@ namespace ProjectMud
         }
         public void Damaged(int quantity)
         {
-            curHp -= quantity;
+            curHp -= (quantity - def/2);
             if (0 > curHp)
             {
                 OnDied();
@@ -71,6 +74,11 @@ namespace ProjectMud
         public void StateDefCh(int quantity)
         {
             def += quantity;
+        }
+
+        public void StateAtkCh(int quantity)
+        {
+            atk += quantity;
         }
         public void PlayerPrint()
         {

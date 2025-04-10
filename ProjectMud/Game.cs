@@ -7,14 +7,18 @@ using ProjectMud.Scenes;
 
 namespace ProjectMud
 {
+    //  아이템의 속성
     public enum ItemType
     { Equip, ConsumAble, UnConsumAble }
-
+    
     public static class Game
-    {
+    {   //  장면 관리
         private static Dictionary<string, Scene> sceneDic;
         private static Scene curScene;
+        
+        //  게임 끝 관리
         private static bool gameEnd;
+        
         //  플래이어 쓸래요
         private static Player player;
         public static Player Player { get { return player; } }
@@ -34,7 +38,8 @@ namespace ProjectMud
             //  PC데미지도 델리게이트로 관리해야 할까?
             //  델리게이트로 게임오버 관리할레요
             player.OnDied += Game.EndTriger;
-            // player.PcInteract += ;
+
+            //  장면들을 추가
             sceneDic = new Dictionary<string, Scene>();
             sceneDic.Add("Title", new Title());
             sceneDic.Add("Field01", new Field01());
@@ -43,15 +48,17 @@ namespace ProjectMud
             sceneDic.Add("TestField01", new TestField01());
             sceneDic.Add("Trader01", new Trader01());
             sceneDic.Add("EndScene", new EndScene());
-
+            
+            //  첫 장면 설정 
             curScene = sceneDic["Title"];
 
         }
 
         //  동작기능
         public static void Run()
-        {
+        {   //  시작
             Game.Start();
+            //  종료까지 반복
             while (gameEnd == false)
             {
                 Console.Clear();
@@ -63,6 +70,7 @@ namespace ProjectMud
                 Console.WriteLine();
                 curScene.Result();
             }
+            //  종료
             Game.End();
         }
         //  종료기능 
@@ -73,18 +81,21 @@ namespace ProjectMud
         //  장면 전환기능
         public static void SceneChange(string sceneName)
         {
-            //  이동 전에 저장할래용
+            //  이동 전에 맵 이름을 저장할래용
             prevSceneName = curScene.name;
             curScene.Exit();
-            //  이동할게용
+            //  이동할게요
             curScene = sceneDic[sceneName];
             curScene.Enter();
         }
+
+        //  장면을 끝난 화면으로 변경할래요
         public static void EndTriger()
         {
             SceneChange("EndScene");
         }
 
+        //  UI출력할래요.
         public static void TextLine()
         {
             //아래쪽에다가 출력할래요

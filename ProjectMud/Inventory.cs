@@ -93,25 +93,20 @@ namespace ProjectMud
             switch (input)
             {
                 case ConsoleKey.D1:
-                    selectItem.Use();
-                    Util.PressKey("");
+                    //  소모품인가요?
                     if (selectItem.itemType == ItemType.ConsumAble)
-                    { Remove(selectItem); }
-                    else
                     {
+                        selectItem.Use(); 
+                        Remove(selectItem);
+                    }
+                    else
+                    {   //  장비인가요?
                         if (selectItem.itemType == ItemType.Equip)
                         {
-                            if (selectItem.isEquip == false)
-                            {
-                                EquipAdd((EquipAble)selectItem);
-                            }
-                            else 
-                            {
-                                EquipRemove((EquipAble)selectItem);
-                                selectItem.isEquip = false;
-                            }
+                            selectItem.Use();
                         }
                     }
+                    Util.PressKey("");
                     stack.Pop();
                     break;
                 case ConsoleKey.D2:
@@ -123,12 +118,10 @@ namespace ProjectMud
         private void EquipAdd(EquipAble equipment)
         {
             equips.Add(equipment);
-            equipment.isEquip = true;
         }
         private void EquipRemove(EquipAble equipment)
         {
             equips.Remove(equipment);
-            equipment.isEquip = false;
         }
         private void DropMenu()
         {

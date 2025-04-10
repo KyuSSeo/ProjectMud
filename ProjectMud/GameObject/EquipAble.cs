@@ -13,7 +13,7 @@ namespace ProjectMud.GameObject
         public ItemType ItemType;
         public EquipAble(Vectors pos)
             : base('I', pos)    
-        {   isEquip = false;    }
+        {   }
         public override void Use()
         {
             if (isEquip == false)

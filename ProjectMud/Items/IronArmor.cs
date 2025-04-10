@@ -23,7 +23,7 @@ namespace ProjectMud.Items
 
         public override void UnEquipItem(Player player)
         {
-            player.StateMaxHpCh(100);
+            player.StateMaxHpCh(-100);
         }
     }
 }

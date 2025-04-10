@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-//  TODO : 플레이어 장비 착용
 //  TODO : 플레이어 거래기능
 
 

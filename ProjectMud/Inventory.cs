@@ -13,11 +13,11 @@ namespace ProjectMud
     {   //  아이템을 리스트로 관리할래요
         private List<Item> items;
         //  장비한 아이템도 리스트로 관리할래요.
-        private List<EquipAble> equips;
         //  스텍으로 인벤토리를 관리할래요.
         private Stack<string> stack;
         private int selectIndex;
         private ConsoleKey input;
+        public List<EquipAble> equips;
 
         public Inventory()
         {
@@ -103,6 +103,13 @@ namespace ProjectMud
                     {   //  장비인가요?
                         if (selectItem.itemType == ItemType.Equip)
                         {
+                            if (selectItem.isEquip == false)
+                            {
+                                EquipAdd((EquipAble)selectItem);
+                            }else
+                            {
+                                EquipRemove((EquipAble)selectItem);
+                            }
                             selectItem.Use();
                         }
                     }

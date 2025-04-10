@@ -13,7 +13,7 @@ namespace ProjectMud
         private Stack<string> stack;
         private int selectIndex;
         private ConsoleKey input;
-
+        private string notthig = "없음";
         public GameMenu()
         {
             options = new List<string>();
@@ -43,13 +43,29 @@ namespace ProjectMud
             }
             
         }
+        private string isExist(int equipNum)
+        {
+            string result = "0";
+            /*
+             *  장비품 리스트의 장비한 번호를 보고
+             *  장비한 번호에 있는 장비 이름을 반환하고 싶어
+             *  
+             *  그런데 만약 장비하고 있는 장비가 없다면
+             *  "장비하지 않음" 을 반환하고 싶어
+             */
+
+            result = Game.Player.Inventory.equips[equipNum].name; 
+
+            return result;
+        }
         private void PlayerInfo()
-        {   // TODO : 스텟, 장비 구현 후 여기에 적어야 한다.
+        {   
             Console.WriteLine("**************************");
             Console.WriteLine($"플래이어의 Hp / hp  : {Game.Player.MaxHp} / {Game.Player.CurHp}");
-            Console.WriteLine("플레이어의 공격력 : {0}");
-            Console.WriteLine("플레이어의 방어력 : {0}");
-            Console.WriteLine("플레이어의 장비 1 : {0}");
+            // TODO : 공격, 방어 구현
+            //Console.WriteLine("플레이어의 공격력 : {0}");
+            //Console.WriteLine("플레이어의 방어력 : {0}");
+            Console.WriteLine("플레이어의 장비 1 : {0}", isExist(0));
             Console.WriteLine("플레이어의 장비 2 : {0}");
             Console.WriteLine("플레이어의 장비 3 : {0}");
             Console.WriteLine("플레이어의 장비 4 : {0}");

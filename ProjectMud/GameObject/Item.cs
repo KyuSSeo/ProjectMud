@@ -12,6 +12,7 @@ namespace ProjectMud.GameObject
         public string name;
         public string description;
         public ItemType itemType;
+        public bool isEquip;
 
         public Item(char symbol, Vectors pos) 
             : base(ConsoleColor.Yellow, symbol, pos, true)

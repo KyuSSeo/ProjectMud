@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,6 +12,8 @@ namespace ProjectMud
     public class Inventory
     {   //  아이템을 리스트로 관리할래요
         private List<Item> items;
+        //  장비한 아이템도 리스트로 관리할래요.
+        private List<EquipAble> equips;
         //  스텍으로 인벤토리를 관리할래요.
         private Stack<string> stack;
         private int selectIndex;
@@ -18,6 +21,7 @@ namespace ProjectMud
 
         public Inventory()
         {
+            equips = new List<EquipAble>();
             items = new List<Item>();
             stack = new Stack<string>();
         }
@@ -93,6 +97,21 @@ namespace ProjectMud
                     Util.PressKey("");
                     if (selectItem.itemType == ItemType.ConsumAble)
                     { Remove(selectItem); }
+                    else
+                    {
+                        if (selectItem.itemType == ItemType.Equip)
+                        {
+                            if (selectItem.isEquip == false)
+                            {
+                                EquipAdd((EquipAble)selectItem);
+                            }
+                            else 
+                            {
+                                EquipRemove((EquipAble)selectItem);
+                                selectItem.isEquip = false;
+                            }
+                        }
+                    }
                     stack.Pop();
                     break;
                 case ConsoleKey.D2:
@@ -101,6 +120,16 @@ namespace ProjectMud
             }
         }
 
+        private void EquipAdd(EquipAble equipment)
+        {
+            equips.Add(equipment);
+            equipment.isEquip = true;
+        }
+        private void EquipRemove(EquipAble equipment)
+        {
+            equips.Remove(equipment);
+            equipment.isEquip = false;
+        }
         private void DropMenu()
         {
             PrintAllItems();

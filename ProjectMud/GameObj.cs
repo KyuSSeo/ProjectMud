@@ -14,7 +14,7 @@ namespace ProjectMud
         public char symbol;
         public Vectors pos;
         public bool isOnece;
-
+        
         public GameObj(ConsoleColor color, char symbol, Vectors pos, bool isOnece)
         {
             this.color = color;

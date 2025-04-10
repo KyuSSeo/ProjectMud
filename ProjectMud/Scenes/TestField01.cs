@@ -41,6 +41,7 @@ namespace ProjectMud.Scenes
             gameObjs.Add(new Candy(new Vectors(1, 6)));
             gameObjs.Add(new HealingPool(new Vectors(3, 6)));
             gameObjs.Add(new PoisonPool(new Vectors(5, 6)));
+            gameObjs.Add(new IronArmor(new Vectors(7, 6)));
         }
         public override void Enter()
         {
